@@ -12,7 +12,7 @@ Each region has *steps* this is an array of animation steps, steps have a *durat
 
 Each step contains the array *elements* which have *selector* and *style* just like start, and can also contain *substeps* for staggered delay animation of multiple objects, which should be the number elements animated. <br>
 
-There's a schema for this json script. <br>
+There's a [schema](https://github.com/jykng-van/animation_queue/blob/main/public/AnimationSchema.json) for this json script. <br>
 
 ## Special Exceptions <br>
 There's a custom animation for Pie/Clock Reveal, it's presented as something like `pie: 0 360` where the first number is the start angle and the second is the end angle of a circular clip-path arc. Pie/Clock Reveal has calculations that depend on the size of the element, so make sure to set that after anything that changes the size of an element. <br>
