@@ -1,0 +1,83 @@
+{
+    "type": "object",
+    "properties": {
+      "start": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "$ref": "#/definitions/change"
+        }
+      },
+      "animations": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "steps" ],
+          "properties": {
+            "trigger": {
+              "type": "string"
+            },
+            "threshold": {
+              "type": "number",
+              "minimum": 0,
+              "maximum":  1
+            },
+            "steps": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [ "duration", "elements" ],
+                "properties": {
+                  "duration": {
+                    "type": "string"
+                  },
+                  "offset": {
+                    "type": "string"
+                  },
+                  "elements": {
+                    "type": "array",
+                    "required": [ "style", "selector" ],
+                    "items": {
+                      "properties": {
+                        "substeps": {
+                          "type": "integer"
+                        },
+                        "style": {
+                          "type": "string"
+                        },
+                        "selector": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "timing": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "additionalProperties": false,
+    "defaultProperties": [],
+    "definitions": {
+      "change": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["style","selector"],
+        "properties": {
+          "style": {
+            "type": "string"
+          },
+          "selector": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
