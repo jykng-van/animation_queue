@@ -8,7 +8,7 @@ function App() {
   const [filename, setFilename] = useState(null);
 
   function switchAnimation(e){
-    let picked = `${e.target.value}.json`;
+    let picked = `animation_queue/${e.target.value}.json`;
     setFilename(picked); //trigger statechange
   }
   function showScript(){
@@ -41,7 +41,7 @@ function App() {
     }
     if (filename==null){
       let picker = document.querySelector('#picker').value;
-      loadAnimation(`${picker}.json`);
+      loadAnimation(`animation_queue/${picker}.json`);
     }else{
       loadAnimation(filename);
     }
