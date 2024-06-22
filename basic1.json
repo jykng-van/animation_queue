@@ -6,8 +6,8 @@
             "style":"opacity:0"
         },
         {
-            "selector":"#shapes, #face",
-            "style":"left:100%"
+            "selector":"#face",
+            "style":"left:105%"
         },
         {
             "selector":"#face",
