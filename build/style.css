@@ -1,0 +1,87 @@
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    height:100%;
+}
+body{
+    background:#000;
+    color:#fff;
+    height: 100%;
+}
+#root{
+    height:100%;
+    display:flex;
+    flex-direction: column;
+}
+header{
+    display:flex;
+    flex-direction: row;
+    padding:1rem;
+    justify-content: space-between;
+}
+header fieldset{
+    display:flex;
+    flex-direction: row;
+    gap:1rem;
+}
+main{
+    flex:1;
+    overflow-y:auto;
+}
+
+#shapes, #face {
+    height: 20rem;
+    pointer-events: none;
+    position:relative;
+  }
+#images{
+    display:flex;
+    flex-direction: row;
+}
+#face-holder{
+    flex:1;
+}
+#animation-section{
+    border:1px solid #fff;
+    margin:1rem;
+    padding:1rem;
+    border-radius:1rem;
+    position:relative;
+    overflow-x:hidden;
+}
+h1, h2{
+    margin:0;
+}
+#boxes{
+    display:flex;
+    flex-direction:row;
+    gap:1rem;
+}
+#boxes div{
+    background:green;
+    color:white;
+    font-size: 3rem;
+    width:4rem;
+    height:4rem;
+    justify-content:center;
+    display:flex;
+    align-items: center;
+}
+#animation-script{
+    height:80vh;
+    width:50vw;
+    background:#000;
+    border:1px solid #fff;
+    border-radius:.5rem;
+}
+#animation-script div{
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+#animation-script pre{
+    flex:1;
+    overflow-y:auto;
+    background:#fff;
+    max-width:95%;
+}
