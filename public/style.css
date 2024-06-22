@@ -33,6 +33,13 @@ main{
     pointer-events: none;
     position:relative;
   }
+#images{
+    display:flex;
+    flex-direction: row;
+}
+#face-holder{
+    flex:1;
+}
 #animation-section{
     border:1px solid #fff;
     margin:1rem;

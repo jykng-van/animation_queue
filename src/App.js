@@ -1,23 +1,24 @@
 import Animation from './animation';
 import { ReactComponent as Shapes } from './shapes.svg';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 function App() {
   const [animationData, setAnimationData] = useState({});
   const [anim] = useState(new Animation());
   const [filename, setFilename] = useState(null);
 
+  const picker = useRef(null);
+  const scriptView = useRef(null);
+
   function switchAnimation(e){
     let picked = `${e.target.value}.json`;
     setFilename(picked); //trigger statechange
   }
   function showScript(){
-    let dialog = document.getElementById('animation-script');
-    dialog.showModal();
+    scriptView.current.showModal();
   }
   function closeScript(){
-    let dialog = document.getElementById('animation-script');
-    dialog.close();
+    scriptView.current.close();
   }
   function redoAnimation(){
     anim.Prepare(animationData.animations, animationData.start, 'main','#animation-section');
@@ -40,8 +41,8 @@ function App() {
       );
     }
     if (filename==null){
-      let picker = document.querySelector('#picker').value;
-      loadAnimation(`${picker}.json`);
+      let picked = picker.current.value;
+      loadAnimation(`${picked}.json`);
     }else{
       loadAnimation(filename);
     }
@@ -55,7 +56,7 @@ function App() {
         <h1>{animationData.name}</h1>
         <fieldset>
           <label htmlFor="picker">Pick an animation</label>
-          <select id="picker" onChange={switchAnimation}>
+          <select id="picker" ref={picker} onChange={switchAnimation}>
             <option value="basic1">Basic Example 1</option>
             <option value="basic2">Basic Example 2</option>
             <option value="drawing_lines">Drawing Lines</option>
@@ -71,8 +72,10 @@ function App() {
       <main>
         <section id="animation-section">
           <h2 id="sub-text">Hello this is an animation!!</h2>
-          <Shapes id="shapes" />
-          <img id="face" src="Mr._Smiley_Face.svg" alt="Smiley Face" />
+          <div id="images">
+            <div id="shapes-holder"><Shapes id="shapes" /></div>
+            <div id="face-holder"><img id="face" src="Mr._Smiley_Face.svg" alt="Smiley Face" /></div>
+          </div>
           <div id="more-text">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elit metus, lacinia sed mattis id, aliquet ut nisl. Curabitur sit amet fringilla nulla. Mauris ut interdum augue. Suspendisse potenti. Fusce eget tellus a nisi lobortis rhoncus. In tincidunt malesuada consequat. Sed vel ex dignissim, facilisis arcu et, tempor neque. Duis iaculis felis vitae fermentum condimentum. Sed a enim sem. Donec urna massa, tincidunt in odio in, suscipit suscipit dolor. Praesent scelerisque odio vitae posuere accumsan. In vitae nisl sem.</p>
           </div>
@@ -86,7 +89,7 @@ function App() {
           </div>
         </section>
       </main>
-      <dialog id="animation-script">
+      <dialog id="animation-script" ref={scriptView}>
         <div>
           <button onClick={closeScript}>Close</button>
           <pre>{JSON.stringify(animationData,null,4)}</pre>
