@@ -1,0 +1,47 @@
+{
+    "name":"Drawing Lines",
+    "start":[
+        {
+            "selector":"#rect, #circ, #triangle",
+            "style":"stroke-dashoffset:start"
+        },
+        {
+            "selector":"#face, #boxes",
+            "style":"display:none"
+        }
+
+    ],
+    "animations":[
+        {
+            "steps":[
+                {
+                    "duration":".6s",
+                    "elements":[
+                        {
+                            "selector":"#circ",
+                            "style":"stroke-dashoffset:0"
+                        }
+                    ]
+                },
+                {
+                    "duration":".6s",
+                    "elements":[
+                        {
+                            "selector":"#rect",
+                            "style":"stroke-dashoffset:0"
+                        }
+                    ]
+                },
+                {
+                    "duration":".6s",
+                    "elements":[
+                        {
+                            "selector":"#triangle",
+                            "style":"stroke-dashoffset:0"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
