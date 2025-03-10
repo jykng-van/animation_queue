@@ -1,5 +1,5 @@
 import Animation from './animation';
-import { ReactComponent as Shapes } from './shapes.svg';
+import Shapes from './shapes.svg?react';
 import { useState, useEffect, useRef } from 'react';
 
 function App() {
